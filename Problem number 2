@@ -1,0 +1,238 @@
+// Program that would compute the following values based on the given sides of the triangle.
+// The library used for the program.
+
+#include<iostream>
+#include<conio.h>
+#include<cmath>
+#include<string>
+
+
+using namespace std;
+
+int main()
+{
+	// Declaration of varibles.
+	double a;
+	double b;
+	double c;
+	double pi = 3.14159265;
+	char x;
+	double perimeter;
+	double area;
+
+	// Introductory part of the program. 
+	cout << "-------------------------------------------" << endl;
+	cout << "EXPLORING A TRIANGLE WITH THE GIVEN SIDES" << endl;
+	cout << "-------------------------------------------" << endl;
+
+	cout << endl << endl;
+
+	// A prompt message to guide the user on what to do. 
+	cout << "Provide the side length of your triangle in meters." << endl;
+
+	cout << endl << endl;
+
+	// Inputting of values on the first side.
+	cout << "First side : ";
+	cin >> a;
+
+	// Inputting of values on the second side.
+	cout << "Second side : ";
+	cin >> b;
+
+	// Inputting of values on the third side. 
+	cout << "Third side : ";
+	cin >> c;
+
+	cout << endl << endl;
+
+	// Presentation of values
+	cout << "-------------------------------------------" << endl;
+	cout << "Presented are the side lengths of your triangle." << endl;
+	cout << "-------------------------------------------" << endl;
+
+	cout << endl << endl;
+
+	// Summary of the intputs.
+	cout << "Side a = " << a << endl;
+	cout << "Side b = " << b << endl;
+	cout << "Side c = " << c << endl;
+
+	cout << endl << endl;
+
+	// Assessing if the lengths met the basic properties of the triangles.
+	if ((a + b) < c)
+	{
+		// Printed message when the values entered do not meet the conditions.
+		cout << "------------------------------------------------------------------------------------------------" << endl;
+		cout << "You entered an invalid lengths of your triangle.\nOne property of a triangles says that\nThe sum of the lengths of any two sides of a triangle is greater than the length of the third side." << endl;
+		cout << "------------------------------------------------------------------------------------------------" << endl;
+	}
+
+	else if ((b + c) < a)
+	{
+		cout << "------------------------------------------------------------------------------------------------" << endl;
+		cout << "You entered an invalid lengths of your triangle.\nOne property of a triangles says that\nThe sum of the lengths of any two sides of a triangle is greater than the length of the third side." << endl;
+		cout << "------------------------------------------------------------------------------------------------" << endl;
+	}
+
+	else if ((a + c) < b)
+	{
+		cout << "------------------------------------------------------------------------------------------------" << endl;
+		cout << "You entered an invalid lengths of your triangle.\nOne property of a triangles says that\nThe sum of the lengths of any two sides of a triangle is greater than the length of the third side." << endl;
+		cout << "------------------------------------------------------------------------------------------------" << endl;
+	}
+
+
+	else
+	{
+		// Transition period.
+		cout << "Enter any key to proceed." << endl;
+		cin >> x;
+
+		// Space design
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+		cout << endl << endl;
+
+		// Below this message are the properties of your triangle.
+		cout << "-------------------------------------------" << endl;
+		cout << "Here are the properties of your triangle." << endl;
+		cout << "-------------------------------------------" << endl;
+
+		cout << endl << endl;
+
+		cout << "* INTERIOR ANGLES" << endl;
+
+		cout << endl;
+
+		// Declaration of variables for the equation of internal angles.
+		float angleab = acos((((pow(c, 2)) - (pow(a, 2)) - (pow(b, 2))) / (-2 * a*b)))*180.0 / pi;
+		float angleac = acos((((pow(b, 2)) - (pow(a, 2)) - (pow(c, 2))) / (-2 * a*c)))*180.0 / pi;
+		float anglebc = acos((((pow(a, 2)) - (pow(b, 2)) - (pow(c, 2))) / (-2 * b*c)))*180.0 / pi;
+
+		// The output of the angles between two sides.
+		cout << "\tThe angle between side \"a\" and side \"b\" is: " << angleab << " degrees." << endl;
+		cout << "\tThe angle between side \"a\" and side \"c\" is: " << angleac << " degrees." << endl;
+		cout << "\tThe angle between side \"b\" and side \"c\" is: " << anglebc << " degrees." << endl;
+
+		cout << endl << endl;
+
+		// Classifying the type of triangle based on the lengths of the sides.
+		cout << "* The type of your triangle according to side" << endl;
+
+		// Conditions for the type of triangle based on the lengths of the sides.
+		if (a == b && b == c)
+			cout << "\tEquilateral or Isosceles Triangle";
+		else if (a != b && b == c)
+			cout << "\tIsosceles Triangle";
+		else if (a == b && b != c)
+			cout << "\tIsosceles Triangle";
+		else if (a != b && b != c)
+			cout << "\tScalene Triangle";
+
+		cout << endl << endl << endl;
+
+		cout << "* The perimeter of your triangle is" << endl;
+
+		// Formula of perimeter
+		perimeter = a + b + c;
+
+		// The output of perimeter.
+		cout << "\t" << perimeter << "meters." << endl;
+
+		cout << endl << endl;
+
+		// Presenting the area of the triangle.
+		cout << "* The area of your triangle is" << endl;
+
+		// Formula of area
+		area = (perimeter / 2)*(perimeter / 2 - a)*(perimeter / 2 - b)*(perimeter / 2 - c);
+
+		// The output of area.
+		cout << "\t" << sqrt(area) << " meters." << endl;
+
+		cout << endl << endl;
+
+		// Classifying the type of triangle based on the internal angles.
+		cout << "* The type of your triangle according to angle" << endl;
+
+		// Condition for the type of triangle based on the internal angles of the sides.
+		if (angleab < 90)
+		{
+			if (anglebc < 90)
+			{
+				if (angleac < 90)
+					cout << "\tAcute triangle";
+
+				else if (angleac > 90)
+				{
+					cout << "\tObtuse triangle";
+				}
+
+				else if (angleac == 90)
+				{
+					cout << "\tRight triangle";
+				}
+			}
+
+			else if (anglebc > 90)
+			{
+				cout << "\tObtuse triangle";
+			}
+
+			else if (anglebc == 90)
+			{
+				cout << "\tRight triangle";
+			}
+
+
+		}
+
+		else if (angleab > 90)
+		{
+			cout << "\tObtuse triangle";
+		}
+
+		else if (angleab == 90)
+		{
+			cout << "\tRight triangle";
+		}
+
+		cout << endl << endl;
+
+		// Presenting the apothem and circumcenter/circumradius.
+		cout << "* Apothem and circumcenter/circumradius" << endl;
+
+		// Conditions before identifying the apothem and circumcenter/circumradius.
+		if (a == b && b == c)
+		{
+			// Formula of apothem and circumcenter/circumradius of a regular triangle.
+			cout << "\tThe Apothem of your triangle is: " << a / (2 * tan(pi / 3)) << "meters" << endl;
+
+			// Output  of the irregular circumcenter/circumradius.
+			cout << "\tThe circumradius of your triangle is: " << (a*b*c) / (sqrt((a + b + c)*(a + b - c)*(a + c - b)*(b + c - a))) << " meters";
+		}
+		else if (a != b && b != c)
+		{
+			cout << "\tYour triangle has no apothem because it is not a regular polygon" << endl;
+
+			// Output  of the irregular circumcenter/circumradius.
+			cout << "\tThe circumradius of your triangle is: " << (a*b*c) / (sqrt((a + b + c)*(a + b - c)*(a + c - b)*(b + c - a))) << " meters";
+		}
+
+	}
+	// End of program. 
+	// System pause. 
+	_getch();
+	return 0;
+}
