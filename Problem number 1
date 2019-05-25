@@ -1,167 +1,176 @@
-// Libraries need in this Machine Problem
+// The libraries used in this machine problem.
 #include<iostream>
-#include<conio.h>   
 #include<cmath>
 #include<string>
+#include <conio.h>
 
 using namespace std;
-// Function for cmputing Individual report grade percentage
+
+// Function for computing individual report grade percentage.
+
 double Indi(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i0)
 {
-	double a;
-	a = ((((i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i0)) / 10) *.15);
-	return a;
+    double a;
+    a = ((((i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i0)) /10) *.15);
+    return a;
 }
-// Function for computing Individual report grade percentage
+
+// Function for computing individual report grade percentage.
 double GrpRpt(int g1, int g2, int g3, int g4, int g5, int g6, int g7, int g8, int g9, int g0)
 {
-	double b;
-	b = ((((g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9 + g0)) / 10) *.25);
-	return b;
+    double b;
+    b = ((((g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9 + g0)) /10) *.25);
+    return b;
 }
-// Function for computing quiz grade percentage
+
+// Function for computing quiz grade percentage.
 double Quizzes(int q1, int q2)
 {
-	double c;
-	c = ((q1 + q2) / 2 * .20);
-	return c;
+    double c;
+    c =((q1 + q2)/2 *.20);
+    return c;
 }
-// Function for computing the major exam grade percentage
+
+// Function for computing the major exam grade percentage.
 double Exam(int m1, int m2, int m3, int m4)
 {
-	double d, e, score;
-	d = ((m1 + m2))* 0.2; //Prelims
-	e = ((m3 + m4))* 0.2; // finals
-	score = d + e;
-	return score;
+    double d, e, score;
+    d = ((m1 + m2))* 0.2; // Prelims
+    e = ((m3 + m4))* 0.2; // Finals
+    score = d + e;
+    return score;
 }
+
 // MAIN
-int main()
+int main ()
 {
-	int s1; // sorting grade variables
-	string s2; // sorting string name variables
-	string name[50];
-	double s3, grade[50], Indiv[50], Grp[50], MajEx[50], quiz[50], Trans[50]; // all the arrays used in one loop
-
-// Initializing the loop for the arrays
-	for (int i = 0; i < 50; i++)
-	{
-		int i1, i2, i3, i4, i5, i6, i7, i8, i9, i0;
-		// Initializing major Exams variable
-		int g1, g2, g3, g4, g5, g6, g7, g8, g9, g0;
-		// Initializing major Exams variable
-		int q1, q2;
-		// Initializing major Exams variable
-		int m1, m2, m3, m4;
-
-		//User inputting whole name
-		cout << i + 1 << ") Enter name (Surname, First name, Middle Initial): ";
-		cin.ignore();
-		cout << endl;
-		getline(cin, name[i]);
-		cout << endl;
-		//Individual Report Component
-		cout << " Enter student 10 Individual report grades(n/100 each)" << endl;
-		cin >> i1 >> i2 >> i3 >> i4 >> i5 >> i6 >> i7 >> i8 >> i9 >> i0;
-		Indiv[i] = Indi(i1, i2, i3, i4, i5, i6, i7, i8, i9, i0);
-		cout << "Individual report grade percentage: " << Indiv[i] << endl;
-		cout << endl;
-		// Group Report Component	
-		cout << " Enter student 10 Group report grades(n/100 each) " << endl;
-		cin >> g1 >> g2 >> g3 >> g4 >> g5 >> g6 >> g7 >> g8 >> g9 >> g0;
-		Grp[i] = GrpRpt(g1, g2, g3, g4, g5, g6, g7, g8, g9, g0);
-		cout << "Total Group report grade percentage: " << Grp[i] << endl;
-		cout << endl;
-		// Quizzes
-		cout << "Enter Student's 2 quiz score:(n/100 each): " << endl;
-		cin >> q1 >> q2;
-		quiz[i] = Quizzes(q1, q2);
-		cout << "Quiz Grade percentage:" << quiz[i] << endl;
-		cout << endl;
-
-		// Major Examination component
-		cout << "Major examinations" << endl;
-		cout << "Prelimeinaries" << endl;
-		cout << "Written Exam score(n/30): ";
-		cin >> m1;
-		cout << "Practical Exam Score(n/70): ";
-		cin >> m2;
-		cout << "Finals" << endl;
-		cout << "Written Exam score(n/30): ";
-		cin >> m3;
-		cout << "Practical Exam Score(n/70): ";
-		cin >> m4;
-		MajEx[i] = Exam(m1, m2, m3, m4);
-		cout << "Major exam grade percentage: " << MajEx[i] << endl;
-		cout << endl;
-		grade[i] = Indiv[i] + Grp[i] + quiz[i] + MajEx[i];
-
-		// Transmutation of Grade 
-		if (grade[i] >= 95.57)
-			Trans[i] = 1.00;
-		else if (grade[i] >= 91.12)
-			Trans[i] = 1.25;
-		else if (grade[i] >= 86.68)
-			Trans[i] = 1.50;
-		else if (grade[i] >= 82.23)
-			Trans[i] = 1.75;
-		else if (grade[i] >= 77.79)
-			Trans[i] = 2.00;
-		else if (grade[i] >= 73.34)
-			Trans[i] = 2.25;
-		else if (grade[i] >= 68.90)
-			Trans[i] = 2.50;
-		else if (grade[i] >= 64.45)
-			Trans[i] = 2.75;
-		else if (grade[i] >= 60)
-			Trans[i] = 3.00;
-		else
-		{
-			Trans[i] = 5.00;
-		}
-
-		cout << "Student total grade is " << grade[i] << " Transmuted: " << Trans[i];
-		// pased or fail identifier
-		if (grade[i] >= 60)
-			cout << " PASSED! CONGRATULATIONS" << endl;
-		else
-			cout << " Failed! See you on summer" << endl;
-		cout << endl;
-	}
-
-	// sorting the students and their grades
-	for (int i = 0; i < 50; i++)
-	{
-		for (int j = i + 1; j < 50; j++)
-		{
-			if (grade[i] < grade[j])
-			{
-				s1 = grade[i]; //sorts the grade
-				grade[i] = grade[j];
-				grade[j] = s1;
-
-				s2 = name[i]; // sorts the name of the student
-				name[i] = name[j];
-				name[j] = s2;
-
-				s3 = Trans[i]; // sorts the transmuted grade of the student
-				Trans[i] = Trans[j];
-				Trans[j] = s3;
-
-			}
-		}
-	}
-	cout << endl;
-	//outputting the top 10
-	for (int a = 0; a < 10; a++)
-	{
-		cout << "Rank " << a + 1 << ": " << name[a] << " with a raw grade of " << grade[a] << ". Transmuted= " << Trans[a] << endl;
-	}
-	cout << endl;
+    int s1; // Sorting grade variables
+    string s2; // Sorting string name variables
+    string name[50];
+    double s3, grade[50], Indiv[50], Grp[50], MajEx[50], quiz[50], Trans[50]; // All the arrays used in one loop.
+    
+    // Initializing the loop for the arrays.
+    for (int i=0; i<50; i++)
+    {
+        int i1, i2, i3, i4, i5, i6, i7, i8, i9, i0;
+        
+        // Initializing major Exams variable
+        int g1, g2, g3, g4, g5, g6, g7, g8, g9, g0;
+        
+        // Initializing major Exams variable
+        int q1, q2;
+        
+        // Initializing major Exams variable
+        int m1, m2, m3, m4;
+        
+        //User inputting whole name
+        cout << i + 1<< ") Enter name (Surname, First name, Middle Initial): ";
+        cin.ignore();
+        cout << endl;
+        getline(cin, name[i]);
+        cout << endl;
+        
+        //Individual Report Component
+        cout<< " Enter student 10 Individual report grades(n/100 each)" << endl;
+        cin>> i1 >> i2 >> i3 >> i4 >> i5 >> i6 >> i7 >> i8 >> i9 >> i0 ;
+        Indiv[i] = Indi(i1, i2, i3, i4, i5, i6, i7, i8, i9, i0);
+        cout << "Individual report grade percentage: " << Indiv[i]<< endl;
+        cout<< endl;
+        
+        // Group Report Component
+        cout<< " Enter student 10 Group report grades(n/100 each) " << endl;
+        cin>> g1 >> g2 >> g3 >> g4 >> g5 >> g6 >> g7 >> g8 >> g9 >> g0 ;
+        Grp[i] = GrpRpt(g1, g2, g3, g4, g5, g6, g7, g8, g9, g0);
+        cout << "Total Group report grade percentage: " << Grp[i] << endl;
+        cout << endl;
+        // Quizzes
+        cout << "Enter Student's 2 quiz score:(n/100 each): " << endl;
+        cin >> q1 >> q2 ;
+        quiz[i]= Quizzes(q1, q2);
+        cout << "Quiz Grade percentage:"<< quiz[i] << endl ;
+        cout<< endl;
+        
+        // Major examination component
+        cout << "Major examinations" << endl;
+        cout << "Preliminaries" << endl;
+        cout << "Written Exam score(n/30): " ;
+        cin>> m1;
+        cout << "Practical Exam Score(n/70): " ;
+        cin>> m2;
+        cout << "Finals"<< endl;
+        cout << "Written Exam score(n/30): " ;
+        cin>> m3;
+        cout << "Practical Exam Score(n/70): " ;
+        cin>> m4;
+        MajEx[i] = Exam(m1, m2, m3, m4);
+        cout << "Major exam grade percentage: " << MajEx[i] << endl;
+        cout<<endl;
+        grade[i] = Indiv[i] + Grp[i] + quiz[i] + MajEx[i];
+        
+        // Transmutation of Grade
+        if(grade[i]>= 95.57 )
+            Trans[i]=1.00;
+        else if(grade[i]>= 91.12)
+            Trans[i]=1.25;
+        else if(grade[i]>= 86.68)
+            Trans[i]=1.50;
+        else if(grade[i]>= 82.23)
+            Trans[i]=1.75;
+        else if(grade[i]>= 77.79)
+            Trans[i]=2.00;
+        else if(grade[i]>= 73.34)
+            Trans[i]=2.25;
+        else if(grade[i]>= 68.90)
+            Trans[i]=2.50;
+        else if(grade[i]>= 64.45)
+            Trans[i]=2.75;
+        else if(grade[i]>= 60)
+            Trans[i]=3.00;
+        else
+        {Trans[i]=5.00;}
+        
+        cout << "Student total grade is " << grade[i] << " Transmuted: "<<Trans[i] ;
+        // pased or fail identifier
+        if(grade[i]>=60)
+            cout << " PASSED! CONGRATULATIONS!" <<endl;
+        else
+            cout << " FAILED! See you on summer." << endl;
+        cout<< endl;
+    }
+    
+    // Sorting the students and their grades
+    for (int i=0; i < 50; i++)
+    {
+        for (int j=i + 1; j < 50; j++)
+        {
+            if( grade[i]<grade[j])
+            {
+                s1 = grade[i]; // Sorts the grade
+                grade[i] = grade[j];
+                grade[j] = s1;
+                
+                s2 = name[i]; // Sorts the name of the student
+                name[i] = name[j];
+                name[j] = s2;
+                
+                s3 = Trans[i]; // Sorts the transmuted grade of the student
+                Trans[i] = Trans[j];
+                Trans[j] = s3;
+                
+            }
+        }
+    }
+    cout<<endl;
+    
+    // Outputting the top 10
+    for (int a=0; a < 10; a++)
+    {
+        cout <<"Rank "<< a +1<< ": " << name[a] << " with a raw grade of " << grade[a] << ". Transmuted = "<<Trans[a] << endl;
+    }
+    cout << endl;
+	
 	_getch();
-	return 0;
+    return 0;
 }
-// thank you!!
-
-// This code was created by Grp 13 , eng 1-2 Dayao, Lucas, Pajarillaga
-
+// Thank you!!
+// This code was created by Grp 13, ENG 1-12 Dayao, Lucas, Pajarillaga
