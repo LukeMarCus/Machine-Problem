@@ -1,5 +1,5 @@
 // Program that would compute the following values based on the given sides of the triangle.
-// The library used for the program.
+// The libraries used for the program.
 
 #include<iostream>
 #include<conio.h>
@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-	// Declaration of varibles.
+	// Declaration of variables.
 	double a;
 	double b;
 	double c;
@@ -27,21 +27,21 @@ int main()
 
 	cout << endl << endl;
 
-	// A prompt message to guide the user on what to do. 
+	// A prompt line to guide the user on what to do. 
 	cout << "Provide the side length of your triangle in meters." << endl;
 
 	cout << endl << endl;
 
 	// Inputting of values on the first side.
-	cout << "First side : ";
+	cout << "First side: ";
 	cin >> a;
 
 	// Inputting of values on the second side.
-	cout << "Second side : ";
+	cout << "Second side: ";
 	cin >> b;
 
 	// Inputting of values on the third side. 
-	cout << "Third side : ";
+	cout << "Third side: ";
 	cin >> c;
 
 	cout << endl << endl;
@@ -53,7 +53,7 @@ int main()
 
 	cout << endl << endl;
 
-	// Summary of the intputs.
+	// Summary of the inputs.
 	cout << "Side a = " << a << endl;
 	cout << "Side b = " << b << endl;
 	cout << "Side c = " << c << endl;
@@ -219,20 +219,23 @@ int main()
 			// Formula of apothem and circumcenter/circumradius of a regular triangle.
 			cout << "\tThe Apothem of your triangle is: " << a / (2 * tan(pi / 3)) << "meters" << endl;
 
-			// Output  of the irregular circumcenter/circumradius.
+			// Output of the irregular circumcenter/circumradius.
 			cout << "\tThe circumradius of your triangle is: " << (a*b*c) / (sqrt((a + b + c)*(a + b - c)*(a + c - b)*(b + c - a))) << " meters";
 		}
 		else if (a != b && b != c)
 		{
 			cout << "\tYour triangle has no apothem because it is not a regular polygon" << endl;
 
-			// Output  of the irregular circumcenter/circumradius.
+			// Output of the irregular circumcenter/circumradius.
 			cout << "\tThe circumradius of your triangle is: " << (a*b*c) / (sqrt((a + b + c)*(a + b - c)*(a + c - b)*(b + c - a))) << " meters";
 		}
 
 	}
-	// End of program. 
+
 	// System pause. 
 	_getch();
 	return 0;
 }
+
+// Thank You!!
+// This code was created by Grp 13, ENG 1-12 Dayao, Lucas, Pajarillaga
